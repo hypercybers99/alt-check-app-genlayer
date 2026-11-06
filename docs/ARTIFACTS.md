@@ -1,14 +1,14 @@
 # AltCheck Desk - Release Artifacts
 
-This document records the official release artifacts for **AltCheck Desk v1.0.1**.
+This document records the official release artifacts for **AltCheck Desk v1.0.2**.
 
 ## Release Archive Details
 
-- **Release Tag**: `v1.0.1`
+- **Release Tag**: `v1.0.2`
 - **Archive Filename**: `alt-check-desk-artifacts.zip`
-- **Download URL**: https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.1/alt-check-desk-artifacts.zip
-- **SHA-256 Checksum**: `4257f26c9d2666a6b6ce25f6913745d30c8404f202f019bb8cdfa9e4fdf50123`
-- **Size**: 1,939,784 bytes (~1.85 MB)
+- **Download URL**: https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.2/alt-check-desk-artifacts.zip
+- **SHA-256 Checksum**: `452672ec57fdae989ade6763a1d4cec9c93c6eec1a77f56731fd8520c31a6e5a`
+- **Size**: 1,943,008 bytes (~1.85 MB)
 
 ## Archive Contents
 
@@ -25,9 +25,10 @@ This document records the official release artifacts for **AltCheck Desk v1.0.1*
    - `logo.svg` (Dark slate shield with amber eye emblem)
    - `logo-transparent.svg` (Transparent background vector)
    - `logo-1024.png` (1024x1024 high-resolution raster master)
-3. **On-Chain Evidence (`docs/e2e_production_evidence.json`)**:
-   - Full 13-transaction lifecycle run recorded on GenLayer Studionet (Preview)
-   - Validated transactions: registration, full audit, cooldown revert, non-registrant note revert, maintainer note append, public page audit, non-registrant retire revert, registrant retire, duplicate revert, non-HTTPS revert, userinfo revert.
+3. **On-Chain Evidence (`docs/e2e_production_evidence.json`, `docs/evidence_verification.json`, `docs/live_fixture_audit.json`)**:
+   - `e2e_production_evidence.json`: Full 13-transaction lifecycle run recorded on GenLayer Studionet (Preview).
+   - `evidence_verification.json`: On-chain RPC verification of all 39 transactions referenced across the application, with raw method names, transaction receipts, validator consensus votes, and execution outcomes.
+   - `live_fixture_audit.json`: Live on-chain audit run of fixture `fresh.html` with a 0 GEN account, demonstrating consensus agreement (3/5), 0 wei balance deducted, and audit persistence.
 4. **Pinned Contract Reference (`contracts-reference/AltCheck.py`)**:
    - Pinned reference contract AltCheck v1.0.1
    - Canonical SHA-256: `9af349d914c6c0e44199a00b0bc4c219a27fc6a9836b3b3a70574c23e4cdc262`

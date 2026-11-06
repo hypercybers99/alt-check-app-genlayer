@@ -74,6 +74,7 @@ export const TxPipelineModal: React.FC<TxPipelineModalProps> = ({
   return (
     <ModalPortal>
       <div
+        data-testid="tx-pipeline-overlay"
         className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[900] flex items-center justify-center p-4 overflow-y-auto"
         role="dialog"
         aria-modal="true"
@@ -82,7 +83,7 @@ export const TxPipelineModal: React.FC<TxPipelineModalProps> = ({
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl relative z-[1000] my-8 max-h-[90vh] flex flex-col">
           {/* Header */}
           <div className="p-5 border-b border-zinc-800 flex items-center justify-between shrink-0">
-            <h2 id="tx-pipeline-title" className="text-base font-bold text-white">
+            <h2 id="tx-pipeline-title" data-testid="tx-pipeline-title" className="text-base font-bold text-white">
               {title}
             </h2>
             {isTerminal && (
@@ -90,6 +91,7 @@ export const TxPipelineModal: React.FC<TxPipelineModalProps> = ({
                 ref={closeBtnRef}
                 type="button"
                 onClick={onClose}
+                data-testid="tx-pipeline-close"
                 className="text-xs text-zinc-400 hover:text-white px-2 py-1 bg-zinc-800 rounded"
               >
                 Close
@@ -103,7 +105,7 @@ export const TxPipelineModal: React.FC<TxPipelineModalProps> = ({
           </div>
 
           {/* Scrollable Body */}
-          <div className="p-6 overflow-y-auto space-y-6 text-center">
+          <div data-testid="tx-pipeline-body" className="p-6 overflow-y-auto space-y-6 text-center">
             <div className="flex justify-center">{getStatusIcon()}</div>
 
             <div className="space-y-1">
@@ -202,11 +204,12 @@ export const TxPipelineModal: React.FC<TxPipelineModalProps> = ({
           </div>
 
           {/* Footer */}
-          <div className="p-4 border-t border-zinc-800 bg-zinc-950/60 shrink-0 flex justify-end">
+          <div data-testid="tx-pipeline-footer" className="p-4 border-t border-zinc-800 bg-zinc-950/60 shrink-0 flex justify-end">
             {isTerminal ? (
               <button
                 type="button"
                 onClick={onClose}
+                data-testid="tx-pipeline-footer-btn"
                 className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-zinc-950 text-xs font-bold rounded-lg transition-colors"
               >
                 Done

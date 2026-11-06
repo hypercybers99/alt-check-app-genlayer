@@ -1,0 +1,26 @@
+{
+  "scenario": "Live Fixture Audit with 0 GEN Throwaway Account",
+  "pageId": "55d0e52560ab",
+  "url": "https://hypercybers99.github.io/alt-check-fixtures/fresh.html",
+  "sender": "0xE832F9bCD3f788b5cF6E4d8129c728DF8afBD4F4",
+  "initialBalance": "0 wei",
+  "finalBalance": "0 wei",
+  "txHash": "0x097d86fe57792d5695068447ec2f3cc50cffe6f41f67dfe745df43386fd71df8",
+  "elapsedSeconds": "72.0",
+  "rawReceiptStatus": 7,
+  "votes": "3/5",
+  "voteDetails": [
+    "AGREE",
+    "IDLE",
+    "IDLE",
+    "AGREE",
+    "AGREE"
+  ],
+  "score": 100,
+  "grade": "A",
+  "partial": false,
+  "mode": "FULL",
+  "auditsTotalBefore": 1,
+  "auditsTotalAfter": 2,
+  "readbackVerified": true
+}

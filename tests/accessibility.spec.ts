@@ -23,18 +23,11 @@ for (const route of ROUTES) {
       .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
       .analyze();
 
-    const seriousViolations = accessibilityScanResults.violations.filter(
-      (v) => v.impact === "critical" || v.impact === "serious"
-    );
+    const criticalViolations = accessibilityScanResults.violations.filter((v) => v.impact === "critical");
+    const seriousViolations = accessibilityScanResults.violations.filter((v) => v.impact === "serious");
 
-    expect(
-      seriousViolations,
-      `Axe detected serious/critical violations on ${route.path}: ${JSON.stringify(
-        seriousViolations,
-        null,
-        2
-      )}`
-    ).toHaveLength(0);
+    expect(criticalViolations).toHaveLength(0);
+    expect(seriousViolations).toHaveLength(0);
   });
 }
 
@@ -45,30 +38,29 @@ test("Wallet Modal dialog passes axe-core accessibility scan and keyboard trap",
   await page.waitForLoadState("domcontentloaded");
 
   const desktopBtn = page.getByTestId("open-wallet-modal");
-  if (await desktopBtn.isVisible()) {
+  const mobileMenuBtn = page.getByTestId("mobile-menu-btn");
+  if (await desktopBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
     await desktopBtn.click();
-  } else {
-    const mobileMenuBtn = page.getByTestId("mobile-menu-btn");
-    await expect(mobileMenuBtn).toBeVisible({ timeout: 5000 });
+  } else if (await mobileMenuBtn.isVisible({ timeout: 3000 }).catch(() => false)) {
     await mobileMenuBtn.click();
-
     const mobileBtn = page.getByTestId("open-wallet-modal-mobile");
     await expect(mobileBtn).toBeVisible({ timeout: 5000 });
     await mobileBtn.click();
+  } else {
+    await desktopBtn.click({ force: true });
   }
 
   const overlay = page.getByTestId("wallet-modal-overlay");
   await expect(overlay).toBeVisible();
 
-  // Run Axe scan on modal
   const accessibilityScanResults = await new AxeBuilder({ page })
     .include('[data-testid="wallet-modal-overlay"]')
     .analyze();
 
-  const seriousViolations = accessibilityScanResults.violations.filter(
-    (v) => v.impact === "critical" || v.impact === "serious"
-  );
+  const criticalViolations = accessibilityScanResults.violations.filter((v) => v.impact === "critical");
+  const seriousViolations = accessibilityScanResults.violations.filter((v) => v.impact === "serious");
 
+  expect(criticalViolations).toHaveLength(0);
   expect(seriousViolations).toHaveLength(0);
 
   // Test keyboard navigation
@@ -76,7 +68,30 @@ test("Wallet Modal dialog passes axe-core accessibility scan and keyboard trap",
   const activeTag = await page.evaluate(() => document.activeElement?.tagName);
   expect(["BUTTON", "INPUT", "A", "DIV"]).toContain(activeTag);
 
-  // Escape closes the modal
   await page.keyboard.press("Escape");
+  await expect(overlay).not.toBeVisible();
+});
+
+test("TxPipelineModal dialog passes axe-core accessibility scan", async ({
+  page,
+}) => {
+  await page.goto("/register?testPipeline=1");
+  await page.waitForLoadState("domcontentloaded");
+
+  const overlay = page.getByTestId("tx-pipeline-overlay");
+  await expect(overlay).toBeVisible();
+
+  const accessibilityScanResults = await new AxeBuilder({ page })
+    .include('[data-testid="tx-pipeline-overlay"]')
+    .analyze();
+
+  const criticalViolations = accessibilityScanResults.violations.filter((v) => v.impact === "critical");
+  const seriousViolations = accessibilityScanResults.violations.filter((v) => v.impact === "serious");
+
+  expect(criticalViolations).toHaveLength(0);
+  expect(seriousViolations).toHaveLength(0);
+
+  // Click Done to dismiss
+  await page.getByTestId("tx-pipeline-footer-btn").click();
   await expect(overlay).not.toBeVisible();
 });

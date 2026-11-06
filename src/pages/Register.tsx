@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useWallet } from "../context/WalletContext";
 import { getWalletClient } from "../services/contractService";
@@ -23,6 +23,25 @@ export const Register: React.FC = () => {
 
   const { account } = useWallet();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("testPipeline") === "1") {
+        setPipelineOpen(true);
+        setOutcome({
+          state: "completed",
+          terminalLabel: "Accepted by validators (3/5 agreed) - state applied",
+          agreeCount: 3,
+          totalVotes: 5,
+          txHash: "0xf0cd11a6023478d73859411fff64397db167ebc1a171c318eb384756c1f16011",
+          rawStatus: "FINALIZED",
+          rawExecutionResult: "SUCCESS",
+        });
+        setElapsed(7);
+      }
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

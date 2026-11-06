@@ -142,16 +142,16 @@ export const WalletPage: React.FC = () => {
       <section className="p-6 bg-zinc-900/60 border border-zinc-800 rounded-3xl space-y-4 text-xs leading-relaxed text-zinc-300">
         <h2 className="text-lg font-bold text-white">Empirical Funding & Gas Measurement</h2>
         <p>
-          On GenLayer Studionet (Preview), transaction gas pricing is subsidized by validator nodes. Our empirical measurements conducted on <strong>October 31, 2026</strong> demonstrated:
+          Measured on 2026-10-31: 13 transactions from 2 keys with 0 GEN, balance 0 before and after, no GEN deducted. Studionet Preview behavior may change.
         </p>
-        <div className="overflow-x-auto border border-zinc-800 rounded-xl bg-zinc-950/70">
+        <div tabIndex={0} role="region" aria-label="Funding measurements table" className="overflow-x-auto border border-zinc-800 rounded-xl bg-zinc-950/70 focus:outline-none focus:ring-1 focus:ring-amber-500">
           <table className="min-w-full divide-y divide-zinc-800 text-left font-mono text-[11px]">
             <thead className="bg-zinc-900 text-zinc-400">
               <tr>
                 <th className="px-4 py-2.5">Contract Write Method</th>
                 <th className="px-4 py-2.5">Initial Account Balance</th>
                 <th className="px-4 py-2.5">Final Account Balance</th>
-                <th className="px-4 py-2.5">Gas Deducted</th>
+                <th className="px-4 py-2.5">GEN Deducted</th>
                 <th className="px-4 py-2.5">Outcome</th>
               </tr>
             </thead>
@@ -160,35 +160,35 @@ export const WalletPage: React.FC = () => {
                 <td className="px-4 py-2 font-bold text-white">register_page</td>
                 <td className="px-4 py-2">0 GEN</td>
                 <td className="px-4 py-2">0 GEN</td>
-                <td className="px-4 py-2 text-emerald-400">0 GEN (Free)</td>
-                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted (3/5 agreed)</td>
+                <td className="px-4 py-2 text-emerald-400">0 GEN</td>
+                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted by validators (3/5 agreed)</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-bold text-white">audit_page</td>
                 <td className="px-4 py-2">0 GEN</td>
                 <td className="px-4 py-2">0 GEN</td>
-                <td className="px-4 py-2 text-emerald-400">0 GEN (Free)</td>
-                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted (3/5 agreed)</td>
+                <td className="px-4 py-2 text-emerald-400">0 GEN</td>
+                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted by validators (3/5 agreed)</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-bold text-white">add_maintainer_note</td>
                 <td className="px-4 py-2">0 GEN</td>
                 <td className="px-4 py-2">0 GEN</td>
-                <td className="px-4 py-2 text-emerald-400">0 GEN (Free)</td>
-                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted (3/5 agreed)</td>
+                <td className="px-4 py-2 text-emerald-400">0 GEN</td>
+                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted by validators (4/5 agreed)</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-bold text-white">retire_page</td>
                 <td className="px-4 py-2">0 GEN</td>
                 <td className="px-4 py-2">0 GEN</td>
-                <td className="px-4 py-2 text-emerald-400">0 GEN (Free)</td>
-                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted (3/5 agreed)</td>
+                <td className="px-4 py-2 text-emerald-400">0 GEN</td>
+                <td className="px-4 py-2 text-emerald-400 font-bold">Accepted by validators (4/5 agreed)</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p className="text-zinc-400 italic">
-          *Note: Studionet Preview behavior may change in future network releases. Currently, an account with a 0-balance can broadcast writes successfully without being blocked by gas barriers.
+          *Note: Studionet Preview behavior may change. An account with 0 GEN balance broadcasts writes without balance deduction.
         </p>
       </section>
     </div>

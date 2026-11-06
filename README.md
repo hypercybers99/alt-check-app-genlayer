@@ -58,7 +58,7 @@ AltCheck Desk is an **automated accessibility signal**, not an official legal co
 - **Page Detail (`/p/:id`)**: Comprehensive audit breakdown, rule-by-rule checklist (R1–R12), unverified indicators, delta progression, and maintainer notes ledger.
 - **Methodology (`/method`)**: Transparent documentation of deterministic rules, LLM penalty scoring, and grade thresholds.
 - **Evidence (`/evidence`)**: Empirical validator agreement scenarios (3/5 consensus), 15 of 15 consensus reverts table, and unit-tested boundary tests.
-- **Wallet & Test Funds (`/wallet`)**: In-app throwaway key management, balance refresh, faucet link, and 0-balance gas subsidy measurement table.
+- **Wallet & Test Funds (`/wallet`)**: In-app throwaway key management, balance refresh, faucet link, and 0-balance measurement table.
 
 ---
 
@@ -109,9 +109,9 @@ npm run test:e2e
 
 Official bulk release archive containing curated screenshots, brand identity vectors, and raw transaction logs:
 - **Archive**: `alt-check-desk-artifacts.zip`
-- **Release Tag**: `v1.0.1`
-- **Download**: [alt-check-desk-artifacts.zip](https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.1/alt-check-desk-artifacts.zip)
-- **SHA-256**: `4257f26c9d2666a6b6ce25f6913745d30c8404f202f019bb8cdfa9e4fdf50123`
+- **Release Tag**: `v1.0.2`
+- **Download**: [alt-check-desk-artifacts.zip](https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.2/alt-check-desk-artifacts.zip)
+- **SHA-256**: `452672ec57fdae989ade6763a1d4cec9c93c6eec1a77f56731fd8520c31a6e5a`
 - Full inventory documented in [docs/ARTIFACTS.md](docs/ARTIFACTS.md).
 
 ---

@@ -339,6 +339,7 @@ export const PageDetail: React.FC = () => {
   if (loading) {
     return (
       <div className="max-w-7xl mx-auto px-4 py-10 space-y-6">
+        <h1 className="sr-only">Page Audit Details</h1>
         <SkeletonLoader count={4} />
       </div>
     );

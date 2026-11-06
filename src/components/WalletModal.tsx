@@ -215,6 +215,7 @@ export const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => 
             <button
               type="button"
               onClick={onClose}
+              data-testid="wallet-modal-footer-close"
               className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold rounded-lg"
             >
               Close
