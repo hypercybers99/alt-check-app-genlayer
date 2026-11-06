@@ -1,0 +1,246 @@
+[
+  {
+    "desc": "Register fresh.html fixture",
+    "txHash": "0xf0cd11a6023478d73859411fff64397db167ebc1a171c318eb384756c1f16011",
+    "fnName": "register_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "E2E Fresh Fixture Page",
+      "https://hypercybers99.github.io/alt-check-fixtures/fresh.html"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": true
+  },
+  {
+    "desc": "Register public httpbin.org/html",
+    "txHash": "0x1d9cbc99ff54a6736c74f0f7b6b149f5724d856a5a4a3e624bdbd35377f07e7d",
+    "fnName": "register_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "E2E Public Httpbin Target",
+      "https://httpbin.org/html"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": true
+  },
+  {
+    "desc": "Register target page for retirement",
+    "txHash": "0x60fb95f40af275e4bc5b580522fc89652a58a025adba914a37e9a3a9d5de3ede",
+    "fnName": "register_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "E2E Retire Target Page",
+      "https://hypercybers99.github.io/alt-check-fixtures/fresh.html?retire=1"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": true
+  },
+  {
+    "desc": "Negative: Duplicate Registration Rejection",
+    "txHash": "0x50b27c2a5951c43668365553d7657c0e13c8efe36ecb4ea8c63dd14febcbd4a5",
+    "fnName": "register_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "Duplicate Attempt",
+      "https://hypercybers99.github.io/alt-check-fixtures/fresh.html"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "ERROR",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": false
+  },
+  {
+    "desc": "Negative: Reject Non-HTTPS URL",
+    "txHash": "0x21c66bd311ef4afa1f4362f28ed3553ba32a523d941c373d8e37c26c223e4811",
+    "fnName": "register_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "HTTP Scheme Test",
+      "http://example.com/insecure"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "ERROR",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": false
+  },
+  {
+    "desc": "Negative: Reject Userinfo Credentials",
+    "txHash": "0x52542eb40354cd8af80a43efdc835f72acecbb0da8239bb7f51a72a3155aa099",
+    "fnName": "register_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "Userinfo Test",
+      "https://user:pass@example.com/login"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "ERROR",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": false
+  },
+  {
+    "desc": "Audit fresh.html (Audit #1)",
+    "txHash": "0xc11869cb1746eee55de76786603de6cbd2e6d0ba8fa08888f335f72ca087f7e7",
+    "fnName": "audit_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "55d0e52560ab"
+    ],
+    "elapsed": 19,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": true
+  },
+  {
+    "desc": "Negative: Audit Cooldown Active (Immediate re-audit)",
+    "txHash": "0x4bd7061c35743d4c3be5175ce92f13b19357b4cfa7870b3a8d160e94ead4ed3d",
+    "fnName": "audit_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "55d0e52560ab"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "ERROR",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": false
+  },
+  {
+    "desc": "Negative: Non-Registrant Maintainer Note Rejection",
+    "txHash": "0x89e228cbbfece43e2138f97370a1a4cefd09927a20aa07d3d98ccbaf69644b3a",
+    "fnName": "add_maintainer_note",
+    "sender": "0x9871b97Ce2cB260E48c1e6Bc3E4a43dfDf1BC681",
+    "args": [
+      "55d0e52560ab",
+      1,
+      "Unauthorized note from non-registrant"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "ERROR",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": false
+  },
+  {
+    "desc": "Add Maintainer Note (Registrant)",
+    "txHash": "0xca9397942b5c2d0992d4b724f50d5683685c1c57d2fe50bd6de8267ff2b32c2e",
+    "fnName": "add_maintainer_note",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "55d0e52560ab",
+      1,
+      "E2E verified maintainer note on fresh audit"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "4/5",
+    "revertPayload": null,
+    "success": true
+  },
+  {
+    "desc": "Audit Real Public Page (httpbin.org/html)",
+    "txHash": "0x5ed706a6b9ca82295c10230c3fec4fba1e8d2215df01400ec4cde27983455b32",
+    "fnName": "audit_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "2cac3e7d6d80"
+    ],
+    "elapsed": 14,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": true
+  },
+  {
+    "desc": "Negative: Non-Registrant Retire Page Rejection",
+    "txHash": "0x216aea1a1271ca216595355c679e4186891d66403c1c38c2fa9f4cf84ecb883d",
+    "fnName": "retire_page",
+    "sender": "0x9871b97Ce2cB260E48c1e6Bc3E4a43dfDf1BC681",
+    "args": [
+      "81186ead3daf"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "ERROR",
+    "votes": "3/5",
+    "revertPayload": null,
+    "success": false
+  },
+  {
+    "desc": "Retire Page (Registrant)",
+    "txHash": "0xa14ab27ddb642cadfb39acd5528d8d53c4abcbd77e9d5f62b8fb77b0da4a4d0f",
+    "fnName": "retire_page",
+    "sender": "0x6a17CCc9e1637b3fFe74E50f0f0e3e23D2F8f9A5",
+    "args": [
+      "81186ead3daf"
+    ],
+    "elapsed": 7,
+    "balBefore": "0x0",
+    "balAfter": "0x0",
+    "rawStatusName": "ACCEPTED",
+    "rawStatus": 5,
+    "executionResultName": "SUCCESS",
+    "votes": "4/5",
+    "revertPayload": null,
+    "success": true
+  }
+]

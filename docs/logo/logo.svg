@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <!-- High-contrast dark graphite background canvas -->
+  <rect width="512" height="512" rx="96" fill="#18181B" />
+  
+  <!-- Outer image-frame outline with a chamfered (cut) top-right corner -->
+  <path d="M 120 160 
+           L 320 160 
+           L 400 240 
+           L 400 392 
+           A 32 32 0 0 1 368 424 
+           L 144 424 
+           A 32 32 0 0 1 112 392 
+           L 112 192 
+           A 32 32 0 0 1 144 160 Z" 
+        stroke="#F59E0B" 
+        stroke-width="24" 
+        stroke-linejoin="round" 
+        stroke-linecap="round" />
+
+  <!-- Corner cut decorative folding tab -->
+  <path d="M 320 160 L 320 240 L 400 240" 
+        stroke="#F59E0B" 
+        stroke-width="20" 
+        stroke-linejoin="round" 
+        stroke-linecap="round" 
+        fill="#27272A" />
+
+  <!-- Inner image landscape hill horizon (accessibility frame element) -->
+  <path d="M 160 368 L 224 288 L 272 336 L 312 280 L 368 368" 
+        stroke="#71717A" 
+        stroke-width="16" 
+        stroke-linejoin="round" 
+        stroke-linecap="round" />
+
+  <!-- Accessibility sun / focal circle inside frame -->
+  <circle cx="216" cy="224" r="24" fill="#F59E0B" />
+
+  <!-- Prominent checkmark inside the cut corner and focal region -->
+  <path d="M 240 296 L 296 352 L 416 216" 
+        stroke="#10B981" 
+        stroke-width="32" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" />
+</svg>

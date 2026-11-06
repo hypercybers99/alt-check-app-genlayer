@@ -1,0 +1,32 @@
+# Dependencies
+node_modules
+dist
+dist-ssr
+*.local
+
+# Environment & Keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Testing & Coverage
+coverage
+test-results
+playwright-report
+blob-report
+playwright/.cache
+traces
+*.trace
+
+# Build & Deploy
+.vercel
+.turbo
+
+# OS
+.DS_Store
+Thumbs.db
+*.zip
+
+.vercel
