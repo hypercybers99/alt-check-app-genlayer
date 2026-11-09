@@ -46,7 +46,7 @@ describe("URL Policy & Hostile Input Validation (Mirrors Contract)", () => {
     { input: "https://example.com/" + "a".repeat(2000), valid: true, error: undefined, desc: "URL within 2048 characters limit" },
 
     // Legitimate URLs
-    { input: "https://huzyow155.github.io/alt-check-fixtures/good.html", valid: true, error: undefined, desc: "Public GitHub Pages fixture" },
+    { input: "https://hypercybers99.github.io/alt-check-fixtures/good.html", valid: true, error: undefined, desc: "Public GitHub Pages fixture" },
     { input: "https://en.wikipedia.org/wiki/Alan_Turing", valid: true, error: undefined, desc: "Public Wikipedia HTTPS page" },
     { input: "https://example.com/test?query=param#fragment", valid: true, error: undefined, desc: "HTTPS URL with query and fragment" },
   ];

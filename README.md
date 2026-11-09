@@ -2,13 +2,13 @@
 
 > Multi-validator consensus accessibility ledger interface on **GenLayer Studionet (Preview)**.
 
-[![Production Deployment](https://img.shields.io/badge/Vercel-Live_Production-emerald.svg)](https://alt-check-app-genlayer.vercel.app)
+[![Production Deployment](https://img.shields.io/badge/Vercel-production-emerald.svg)](https://alt-check-app-genlayer.vercel.app)
 [![Contract](https://img.shields.io/badge/Contract-0x1292C9...dd30-amber.svg)](https://explorer-studio.genlayer.com/address/0x1292C9bf74C2ef2789184Ec9808379d46279dd30)
 [![Network](https://img.shields.io/badge/Network-GenLayer_Studionet_(Preview)-blue.svg)](https://studio.genlayer.com)
-[![Tests](https://img.shields.io/badge/Tests-61_passed-brightgreen.svg)]()
-[![Playwright E2E](https://img.shields.io/badge/Playwright-36_passed-brightgreen.svg)]()
+[![Tests](https://img.shields.io/badge/Tests-66_passed-brightgreen.svg)]()
+[![Playwright E2E](https://img.shields.io/badge/Playwright-51_passed-brightgreen.svg)]()
 
-AltCheck Desk is the official web dApp for **AltCheck**, an intelligent accessibility ledger deployed on **GenLayer Studionet (Preview)**. Multiple independent consensus validators independently fetch server-delivered HTML, parse document structure, execute deterministic accessibility rules (R1–R12), sample ambiguous image alt text and link text for non-deterministic LLM grading, and commit verifiable accessibility progress on-chain.
+AltCheck Desk is the web interface for **AltCheck**, an intelligent accessibility ledger deployed on **GenLayer Studionet (Preview)**. Multiple independent consensus validators independently fetch server-delivered HTML, parse document structure, execute deterministic accessibility rules (R1–R12), sample ambiguous image alt text and link text for non-deterministic LLM grading, and records accessibility progress on-chain.
 
 ---
 
@@ -34,7 +34,7 @@ AltCheck Desk is the official web dApp for **AltCheck**, an intelligent accessib
 
 ## 2. Production Deployment
 
-- **Live URL**: [https://alt-check-app-genlayer.vercel.app](https://alt-check-app-genlayer.vercel.app)
+- **Deployment URL**: [https://alt-check-app-genlayer.vercel.app](https://alt-check-app-genlayer.vercel.app)
 - **Deployment Platform**: Vercel (Production)
 - **Framework**: React 19 + TypeScript + Vite + Tailwind CSS + GenLayer JS SDK
 
@@ -42,11 +42,12 @@ AltCheck Desk is the official web dApp for **AltCheck**, an intelligent accessib
 
 ## 3. Honest Automated Signal Scope
 
-AltCheck Desk is an **automated accessibility signal**, not an official legal compliance certificate.
+AltCheck Desk is an **automated accessibility signal**, not a formal legal compliance certificate.
 - Audits examine server-delivered HTML up to 300 KB or 3,000 DOM elements.
 - Documents cut at the limit are flagged `partial: true` with grades capped at B. Whole-document rules (R5 heading order, R8 duplicate IDs, R11 main landmark) are marked `unverified (partial)`.
 - Client-side single page applications (SPAs) serving empty containers are classified honestly as `SHELL_ONLY`.
 - AltCheck does not execute client JavaScript, calculate runtime color contrast, or simulate screen readers.
+- Historical test fixtures previously registered on `huzyow155.github.io` are no longer served by that host (HTTP 404) following an account rename. Their stored on-chain audit records remain readable, while active fixtures are served at `https://hypercybers99.github.io/alt-check-fixtures`.
 
 ---
 
@@ -66,7 +67,7 @@ AltCheck Desk is an **automated accessibility signal**, not an official legal co
 
 ### Unit Test Suite
 ```bash
-# Run Vitest unit tests (61 tests across 11 suites)
+# Run Vitest unit tests (66 tests across 12 suites)
 npm run test
 ```
 
@@ -99,7 +100,7 @@ npm run check
 
 ### End-to-End & Accessibility Tests
 ```bash
-# Run Playwright E2E and axe-core accessibility tests (36 tests)
+# Run Playwright E2E and axe-core accessibility tests (51 tests)
 npm run test:e2e
 ```
 
@@ -107,11 +108,11 @@ npm run test:e2e
 
 ## 6. Release Artifacts
 
-Official bulk release archive containing curated screenshots, brand identity vectors, and raw transaction logs:
+Bulk release archive containing curated screenshots, brand identity vectors, and raw transaction logs:
 - **Archive**: `alt-check-desk-artifacts.zip`
-- **Release Tag**: `v1.0.2`
-- **Download**: [alt-check-desk-artifacts.zip](https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.2/alt-check-desk-artifacts.zip)
-- **SHA-256**: `452672ec57fdae989ade6763a1d4cec9c93c6eec1a77f56731fd8520c31a6e5a`
+- **Release Tag**: `v1.0.3`
+- **Download**: [alt-check-desk-artifacts.zip](https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.3/alt-check-desk-artifacts.zip)
+- **SHA-256**: `76fc2c653e369201cc110504bce7b4afd389c65f19bc6fe16f7eb8182a63d293`
 - Full inventory documented in [docs/ARTIFACTS.md](docs/ARTIFACTS.md).
 
 ---

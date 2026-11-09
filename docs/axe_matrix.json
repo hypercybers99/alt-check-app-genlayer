@@ -1,0 +1,310 @@
+{
+  "testedAt": "2026-11-09T13:21:24.167Z",
+  "targetUrl": "https://alt-check-app-genlayer.vercel.app",
+  "summary": {
+    "totalRuns": 27,
+    "critical": 0,
+    "serious": 0,
+    "moderate": 0,
+    "minor": 0
+  },
+  "results": [
+    {
+      "scenario": "Landing Page (/)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Landing Page (/)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Landing Page (/)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Board (/board)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Board (/board)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Board (/board)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Register Page (/register)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Register Page (/register)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Register Page (/register)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Page Detail (/p/55d0e52560ab)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Page Detail (/p/55d0e52560ab)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Page Detail (/p/55d0e52560ab)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Methodology (/method)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Methodology (/method)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Methodology (/method)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Evidence (/evidence)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Evidence (/evidence)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Evidence (/evidence)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Wallet & Funds (/wallet)",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Wallet & Funds (/wallet)",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Wallet & Funds (/wallet)",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Dialog: WalletModal",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Dialog: WalletModal",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Dialog: WalletModal",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Dialog: TxPipelineModal",
+      "viewport": "1440x900",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Dialog: TxPipelineModal",
+      "viewport": "500x400",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    },
+    {
+      "scenario": "Dialog: TxPipelineModal",
+      "viewport": "390x667",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "violations": []
+    }
+  ]
+}

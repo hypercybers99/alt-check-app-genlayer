@@ -1,14 +1,14 @@
 # AltCheck Desk - Release Artifacts
 
-This document records the official release artifacts for **AltCheck Desk v1.0.2**.
+This document records the release artifacts for **AltCheck Desk v1.0.3**.
 
 ## Release Archive Details
 
-- **Release Tag**: `v1.0.2`
+- **Release Tag**: `v1.0.3`
 - **Archive Filename**: `alt-check-desk-artifacts.zip`
-- **Download URL**: https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.2/alt-check-desk-artifacts.zip
-- **SHA-256 Checksum**: `452672ec57fdae989ade6763a1d4cec9c93c6eec1a77f56731fd8520c31a6e5a`
-- **Size**: 1,943,008 bytes (~1.85 MB)
+- **Download URL**: https://github.com/hypercybers99/alt-check-app-genlayer/releases/download/v1.0.3/alt-check-desk-artifacts.zip
+- **SHA-256 Checksum**: `76fc2c653e369201cc110504bce7b4afd389c65f19bc6fe16f7eb8182a63d293`
+- **Size**: 1,949,245 bytes (~1.86 MB)
 
 ## Archive Contents
 

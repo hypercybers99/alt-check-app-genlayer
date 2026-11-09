@@ -6,56 +6,117 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.join(__dirname, "..");
 
-const e2eRaw = JSON.parse(fs.readFileSync(path.join(rootDir, "docs/e2e_production_evidence.json"), "utf8"));
+const storedPages = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "docs/stored_pages.json"), "utf8")
+);
+const e2eRaw = JSON.parse(
+  fs.readFileSync(path.join(rootDir, "docs/e2e_production_evidence.json"), "utf8")
+);
+
+// Helper to look up a page by URL filename substring
+function findStoredPage(filename) {
+  const p = storedPages.find((item) => item.stored_url.toLowerCase().endsWith("/" + filename.toLowerCase()));
+  if (!p) {
+    throw new Error(`Could not find stored page matching fixture: ${filename}`);
+  }
+  return p;
+}
+
+// 1. Positive Scenarios matching on-chain stored pages
+// Each scenario explicitly extracts its displayed URL from stored_pages.json
+const goodWorking = storedPages.find(
+  (p) => p.stored_url === "https://hypercybers99.github.io/alt-check-fixtures/good.html"
+);
+const freshWorking = storedPages.find(
+  (p) => p.stored_url === "https://hypercybers99.github.io/alt-check-fixtures/fresh.html"
+);
+const largeStored = findStoredPage("large.html");
+const mixedStored = findStoredPage("mixed.html");
+const shellStored = findStoredPage("shell.html");
+const badStored = findStoredPage("bad.html");
 
 const positiveScenarios = [
   {
-    name: "Scenario 1: Clean Accessible Page",
+    name: "Scenario 1: Clean Accessible Page (Working Host)",
     fixture: "good.html",
-    url: "https://hypercybers99.github.io/alt-check-fixtures/good.html",
-    reg: "0x5a59ffa105fea05acc3a2484df4f31ce7cae318e23321221e8b0b4f98405a4ca",
-    audit: "0x0005962924374a3c606671862b2757133733f6af62a7075cbaf655788f0f5302",
+    pageId: goodWorking.id,
+    url: goodWorking.stored_url,
+    httpStatus: goodWorking.http_status,
+    reg: "0x070a4ab259efb36eb3f4e37e57496cd2f520b04cca673db81758f0897a771651",
+    audit: "0x0eac114cb1abdac39ba4a85c03a496fa398f1f7410c3f7150c09c9c96b711905",
     agree: "Accepted by validators (3/5 agreed)",
     res: "Score 100 (Grade A)",
+    partial: false,
+    notice: goodWorking.http_status !== 200 ? `The source host no longer serves this URL (HTTP ${goodWorking.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.` : null,
   },
   {
-    name: "Scenario 2: Defective Page Across R1-R12",
-    fixture: "bad.html",
-    url: "https://hypercybers99.github.io/alt-check-fixtures/bad.html",
-    reg: "0x98d91239c561e7f1c82a74807d1dbf018b3b149822f5a9335046d57e23388cec",
-    audit: "0xa788f95121bbdc835ceaf2bf922d804ca9994ffae4dfa2b88f0c0470d35784f0",
+    name: "Scenario 2: E2E Fresh Fixture Page (Working Host)",
+    fixture: "fresh.html",
+    pageId: freshWorking.id,
+    url: freshWorking.stored_url,
+    httpStatus: freshWorking.http_status,
+    reg: "0xf0cd11a6023478d73859411fff64397db167ebc1a171c318eb384756c1f16011",
+    audit: "0x097d86fe57792d5695068447ec2f3cc50cffe6f41f67dfe745df43386fd71df8",
     agree: "Accepted by validators (3/5 agreed)",
-    res: "Score 25 (Grade F)",
+    res: "Score 100 (Grade A)",
+    partial: false,
+    notice: freshWorking.http_status !== 200 ? `The source host no longer serves this URL (HTTP ${freshWorking.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.` : null,
   },
   {
-    name: "Scenario 3: Model Ambiguity Evaluation",
-    fixture: "mixed.html",
-    url: "https://hypercybers99.github.io/alt-check-fixtures/mixed.html",
-    reg: "0x670b96340e422e902190af315b580d12978512949870fdb944758158d59e0ecc",
-    audit: "0xa5cc91061e0ee8f9cbf402fec2bc1943f6407d1d04d2e4ea96fdb88c2fef7b5c",
-    agree: "Accepted by validators (3/5 agreed)",
-    res: "Score 88 (Grade B)",
-  },
-  {
-    name: "Scenario 4: SPA Shell Detection",
-    fixture: "shell.html",
-    url: "https://hypercybers99.github.io/alt-check-fixtures/shell.html",
-    reg: "0x7195740e4672c08b5efb8f5c512956bdb1568150c503eb0e5c4ba64effd77c8d",
-    audit: "0x0d7723d22cf4bef8625b7ffcd323bada48fe353fa8fc68c282f04462a6bc0da5",
-    agree: "Accepted by validators (3/5 agreed)",
-    res: "Score -1 (SHELL_ONLY)",
-  },
-  {
-    name: "Scenario 4B: Large Doc Partial Audit (Grade B Capped)",
+    name: "Scenario 3: Large Doc Partial Audit (Grade B Capped)",
     fixture: "large.html",
-    url: "https://hypercybers99.github.io/alt-check-fixtures/large.html",
+    pageId: largeStored.id,
+    url: largeStored.stored_url,
+    httpStatus: largeStored.http_status,
     reg: "0xe50db6b5170f276a2756d65351688be685972def9f0a4b035214c75d21231525",
     audit: "0xf16c3954f12aa8d2ad1ab13ecbd4f68e3374c57d90e525035eadde7c888f9867",
     agree: "Accepted by validators (3/5 agreed)",
     res: "Score 90 (Grade B capped)",
+    partial: true,
+    notice: largeStored.http_status !== 200 ? `The source host no longer serves this URL (HTTP ${largeStored.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.` : null,
+  },
+  {
+    name: "Scenario 4: Model Ambiguity Evaluation",
+    fixture: "mixed.html",
+    pageId: mixedStored.id,
+    url: mixedStored.stored_url,
+    httpStatus: mixedStored.http_status,
+    reg: "0x670b96340e422e902190af315b580d12978512949870fdb944758158d59e0ecc",
+    audit: "0xa5cc91061e0ee8f9cbf402fec2bc1943f6407d1d04d2e4ea96fdb88c2fef7b5c",
+    agree: "Accepted by validators (3/5 agreed)",
+    res: "Score 88 (Grade B)",
+    partial: false,
+    notice: mixedStored.http_status !== 200 ? `The source host no longer serves this URL (HTTP ${mixedStored.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.` : null,
+  },
+  {
+    name: "Scenario 5: SPA Shell Detection",
+    fixture: "shell.html",
+    pageId: shellStored.id,
+    url: shellStored.stored_url,
+    httpStatus: shellStored.http_status,
+    reg: "0x7195740e4672c08b5efb8f5c512956bdb1568150c503eb0e5c4ba64effd77c8d",
+    audit: "0x0d7723d22cf4bef8625b7ffcd323bada48fe353fa8fc68c282f04462a6bc0da5",
+    agree: "Accepted by validators (3/5 agreed)",
+    res: "Score -1 (SHELL_ONLY)",
+    partial: false,
+    notice: shellStored.http_status !== 200 ? `The source host no longer serves this URL (HTTP ${shellStored.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.` : null,
+  },
+  {
+    name: "Scenario 6: Defective Page Across R1-R12",
+    fixture: "bad.html",
+    pageId: badStored.id,
+    url: badStored.stored_url,
+    httpStatus: badStored.http_status,
+    reg: "0x98d91239c561e7f1c82a74807d1dbf018b3b149822f5a9335046d57e23388cec",
+    audit: "0xa788f95121bbdc835ceaf2bf922d804ca9994ffae4dfa2b88f0c0470d35784f0",
+    agree: "Accepted by validators (3/5 agreed)",
+    res: "Score 25 (Grade F)",
+    partial: false,
+    notice: badStored.http_status !== 200 ? `The source host no longer serves this URL (HTTP ${badStored.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.` : null,
   },
 ];
 
+// 2. 15 Expected Reverts
 const revertScenarios = [
   { name: "Reject HTTP Scheme", fn: "register_page", hash: "0x4bb32503f136515fe824efd27b13dc0d7ef90dd57d26c1fc6146cc0de7ab16d2", rawStatus: "FINALIZED", votes: "3/5", err: "url must use https", derivedLabel: "Reverted - state not applied" },
   { name: "Reject Localhost Hostname", fn: "register_page", hash: "0x6149c03e97b727c0c23e8ab63c59f0777458f6cbfcf68ff34f1f843d0bf9787b", rawStatus: "FINALIZED", votes: "3/5", err: "url host not allowed", derivedLabel: "Reverted - state not applied" },
@@ -111,7 +172,7 @@ fs.writeFileSync(
   "utf8"
 );
 
-console.log(`Generated src/data/evidenceData.json successfully:
+console.log(`Generated src/data/evidenceData.json successfully from docs/stored_pages.json:
   - Positive Scenarios: ${positiveScenarios.length}
   - Revert Scenarios: ${revertScenarios.length}
   - E2E Lifecycle Transactions: ${e2eRaw.length}

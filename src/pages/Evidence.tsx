@@ -11,7 +11,7 @@ export const Evidence: React.FC = () => {
           On-Chain Evidence & Verification Log
         </h1>
         <p className="text-sm text-zinc-400 mt-2">
-          Verifiable consensus transactions recorded on GenLayer Studionet (Preview).
+          Consensus transactions recorded on GenLayer Studionet (Preview).
         </p>
       </div>
 
@@ -85,10 +85,15 @@ export const Evidence: React.FC = () => {
               {evidenceData.positiveScenarios.map((s, idx) => (
                 <tr key={idx} className="hover:bg-zinc-800/30">
                   <td className="px-4 py-3 font-sans font-medium text-white">{s.name}</td>
-                  <td className="px-4 py-3 text-amber-400">
-                    <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                      {s.fixture}
+                  <td className="px-4 py-3 text-amber-400 max-w-sm">
+                    <a href={s.url} target="_blank" rel="noopener noreferrer" className="hover:underline break-all block">
+                      {s.url}
                     </a>
+                    {s.notice && (
+                      <div className="text-[10px] text-amber-400 font-sans mt-1 leading-tight">
+                        {s.notice}
+                      </div>
+                    )}
                   </td>
                   <td className="px-4 py-3 text-zinc-400 truncate max-w-xs">
                     <a href={`${NETWORK_CONFIG.explorerBaseUrl}/tx/${s.reg}`} target="_blank" rel="noopener noreferrer" className="hover:underline">

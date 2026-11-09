@@ -7,6 +7,28 @@ describe("Evidence Data Reconciliation & Integrity", () => {
   const e2eRaw = JSON.parse(
     fs.readFileSync(path.join(__dirname, "../docs/e2e_production_evidence.json"), "utf8")
   );
+  const storedPages = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "../docs/stored_pages.json"), "utf8")
+  );
+
+  it("verifies displayed URLs in evidenceData.json strictly match on-chain stored_url in docs/stored_pages.json", () => {
+    evidenceData.positiveScenarios.forEach((scenario) => {
+      const stored = storedPages.find((p: any) => p.id === scenario.pageId);
+      expect(stored, `Page ID ${scenario.pageId} not found in docs/stored_pages.json`).toBeDefined();
+      expect(
+        scenario.url,
+        `Displayed URL for page ${scenario.pageId} must exactly match on-chain stored_url`
+      ).toBe(stored.stored_url);
+
+      if (stored.http_status !== 200) {
+        expect(scenario.notice).toBe(
+          `The source host no longer serves this URL (HTTP ${stored.http_status}). The stored audit result is still readable; a new audit of this page cannot be run.`
+        );
+      } else {
+        expect(scenario.notice).toBeNull();
+      }
+    });
+  });
 
   it("verifies e2eLifecycle in evidenceData.json strictly matches docs/e2e_production_evidence.json", () => {
     expect(evidenceData.e2eLifecycle).toHaveLength(e2eRaw.length);

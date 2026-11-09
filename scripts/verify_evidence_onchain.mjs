@@ -35,12 +35,12 @@ function parseMethodFromCalldata(b64) {
   if (!b64) return "unknown";
   try {
     const str = Buffer.from(b64, "base64").toString("utf8");
-    const m = str.match(/method[a-z]?([a-zA-Z0-9_]+)/);
-    if (m) return m[1];
-    if (str.includes("register_page")) return "register_page";
-    if (str.includes("audit_page")) return "audit_page";
     if (str.includes("add_maintainer_note")) return "add_maintainer_note";
+    if (str.includes("register_page")) return "register_page";
     if (str.includes("retire_page")) return "retire_page";
+    if (str.includes("audit_page")) return "audit_page";
+    const m = str.match(/method[^\w]*([a-zA-Z0-9_]+)/i);
+    if (m) return m[1].replace(/^[a-zA-Z]/, "");
     return "deploy / contract call";
   } catch {
     return "unknown";
@@ -147,6 +147,9 @@ async function main() {
 
   const filesToScan = [
     path.join(rootDir, "docs/e2e_production_evidence.json"),
+    path.join(rootDir, "docs/live_fixture_audit.json"),
+    path.join(rootDir, "docs/live_good_fixture_audit.json"),
+    path.join(rootDir, "src/data/evidenceData.json"),
     path.join(rootDir, "src/pages/Evidence.tsx"),
     path.join(rootDir, "README.md"),
     path.join(rootDir, "docs/ARTIFACTS.md"),

@@ -2,11 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { fetchPage } from "../src/services/contractService";
 
 describe("RPC Error vs Page Not Found State Distinction", () => {
-  it("returns null specifically when error message is 'page not found'", async () => {
-    // Mock getPublicClient to throw 'page not found'
-    const page = await fetchPage("nonexistent_id").catch((e) => e);
-    // Since we are running in unit tests without live network mocking,
-    // let's verify our error handler logic directly:
+  it("returns null specifically when error message is 'page not found'", () => {
     function handleReadError(err: any) {
       if (String(err).includes("page not found")) {
         return null;

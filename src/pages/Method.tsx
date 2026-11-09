@@ -29,7 +29,7 @@ export const Method: React.FC = () => {
             <li><strong>No CSS Layout Engine:</strong> It does not parse stylesheets, compute cascading styles, or calculate visual color contrast ratios.</li>
             <li><strong>No Pixel Sight:</strong> The contract cannot see or process image pixel data. Image alt attributes are evaluated purely for text descriptive clarity out of context.</li>
             <li><strong>No Screen Reader Hardware:</strong> AltCheck does not physically simulate assistive technology screen readers or test keyboard navigation.</li>
-            <li><strong>Automated Signal Only:</strong> The audited rule set is a deterministic subset of WCAG criteria and does not constitute an official legal compliance certificate.</li>
+            <li><strong>Automated Signal Only:</strong> The audited rule set is a deterministic subset of WCAG criteria and does not constitute a formal legal compliance certificate.</li>
           </ul>
         </div>
       </section>

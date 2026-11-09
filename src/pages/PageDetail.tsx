@@ -31,6 +31,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+import { getPageAvailability } from "../lib/pageStatus";
 
 export const PageDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -384,11 +385,18 @@ export const PageDetail: React.FC = () => {
               <span>{page.url}</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
+
+            {getPageAvailability(page.id, page.url).notice && (
+              <div className="mt-3 p-3 bg-amber-950/40 border border-amber-800/60 rounded-xl text-xs text-amber-300 flex items-start space-x-2">
+                <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <span>{getPageAvailability(page.id, page.url).notice}</span>
+              </div>
+            )}
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-3">
-            {!page.retired && (
+            {!page.retired && getPageAvailability(page.id, page.url).isAvailable && (
               <button
                 type="button"
                 onClick={handleRunAudit}
@@ -441,7 +449,7 @@ export const PageDetail: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
               <TrendingUp className="w-4 h-4" />
-              <span>Verifiable Audit Progress Delta (Audit #{progress.earlier_audit_n} &rarr; Audit #{progress.latest_audit_n})</span>
+              <span>Audit Progress Delta (Audit #{progress.earlier_audit_n} &rarr; Audit #{progress.latest_audit_n})</span>
             </div>
             <div className="text-lg font-black font-mono text-emerald-400">
               {progress.score_delta >= 0 ? `+${progress.score_delta}` : progress.score_delta} Points

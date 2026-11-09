@@ -50,17 +50,17 @@ export const Home: React.FC = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-          Verifiable Web Accessibility <br />
+          Web Accessibility <br />
           <span className="text-amber-500">Audited by Validator Consensus</span>
         </h1>
 
         <p className="text-lg text-zinc-300 max-w-2xl mx-auto leading-relaxed">
-          AltCheck fetches raw server-delivered HTML, computes deterministic WCAG rules in code, validates qualitative image alt and link descriptions via language model consensus, and records verifiable score improvement on-chain.
+          AltCheck fetches raw server-delivered HTML, computes deterministic WCAG rules in code, validates qualitative image alt and link descriptions via language model consensus, and records score improvement on-chain.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
           <Link
-            to="/p/cf95eac13fb0"
+            to="/p/55d0e52560ab"
             className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-amber-500/20 flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-amber-500"
           >
             <span>See a Real Audit Record</span>
@@ -129,28 +129,28 @@ export const Home: React.FC = () => {
           <div className="space-y-4 max-w-xl">
             <div className="inline-flex items-center space-x-2 text-xs font-mono text-emerald-400 bg-emerald-950/40 px-2.5 py-1 rounded-md border border-emerald-800/50">
               <TrendingUp className="w-3.5 h-3.5" />
-              <span>Verified On-Chain Progress Demo (+75 Points)</span>
+              <span>On-Chain Clean Fixture Demo (Score 100 / Grade A)</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-white">
-              Demonstration: From Grade F (25) to Grade A (100)
+              Accessible Page Demonstration: Grade A (100)
             </h2>
             <p className="text-sm text-zinc-300 leading-relaxed">
-              Page <code className="text-amber-400 font-mono bg-zinc-800 px-1 py-0.5 rounded">cf95eac13fb0</code> demonstrates verifiable remediation: an initial audit recorded 12 violations across R1-R12. After HTML repairs, audit #2 recorded a clean 100 A score with an attached registrant maintainer note.
+              Page <code className="text-amber-400 font-mono bg-zinc-800 px-1 py-0.5 rounded">173a4e08d12d</code> on the working host (<span className="font-mono text-xs text-zinc-400">https://hypercybers99.github.io/alt-check-fixtures/good.html</span>) demonstrates multi-validator consensus evaluation: 0 violations across rules R1-R12, full element traversal, and descriptive clarity accepted by validators.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
             <div className="p-4 bg-zinc-900 rounded-2xl border border-zinc-800 text-center w-36">
-              <span className="text-xs text-zinc-400 block font-mono">Before Fix</span>
-              <span className="text-3xl font-black text-rose-400">25 (F)</span>
+              <span className="text-xs text-zinc-400 block font-mono">Consensus</span>
+              <span className="text-2xl font-black text-amber-400">3/5 Agree</span>
             </div>
             <div className="text-amber-400 font-mono font-bold text-lg">&rarr;</div>
             <div className="p-4 bg-zinc-900 rounded-2xl border border-zinc-800 text-center w-36">
-              <span className="text-xs text-zinc-400 block font-mono">After Fix</span>
+              <span className="text-xs text-zinc-400 block font-mono">Score</span>
               <span className="text-3xl font-black text-emerald-400">100 (A)</span>
             </div>
             <Link
-              to="/p/cf95eac13fb0"
+              to="/p/173a4e08d12d"
               className="px-5 py-3 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold rounded-xl text-xs transition-colors"
             >
               Inspect Details
@@ -164,7 +164,7 @@ export const Home: React.FC = () => {
         <div className="flex items-center justify-between">
           <div>
             <h2 className="text-xl font-bold text-white">Top Audited Pages</h2>
-            <p className="text-xs text-zinc-400">Ranked by verifiable score with full audits prioritized over partial audits</p>
+            <p className="text-xs text-zinc-400">Ranked by audit score with full audits prioritized over partial audits</p>
           </div>
           <Link
             to="/board"

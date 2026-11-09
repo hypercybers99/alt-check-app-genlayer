@@ -143,7 +143,7 @@ export const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => 
             <div className="p-3 bg-zinc-800/40 border border-zinc-700/50 rounded-xl flex items-center justify-between">
               <div>
                 <span className="text-xs font-semibold text-zinc-200 block">Need Studionet Test Funds?</span>
-                <span className="text-xs text-zinc-400">Request GEN tokens from the official faucet</span>
+                <span className="text-xs text-zinc-400">Request GEN tokens from the network faucet</span>
               </div>
               <a
                 href="https://studio.genlayer.com"

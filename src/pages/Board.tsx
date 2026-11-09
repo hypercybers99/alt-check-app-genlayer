@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchBoard, BoardData } from "../services/contractService";
 import { SkeletonLoader } from "../components/SkeletonLoader";
 import { Award, TrendingUp, AlertCircle, RefreshCw, Layers } from "lucide-react";
+import { getPageAvailability } from "../lib/pageStatus";
 
 export const Board: React.FC = () => {
   const [board, setBoard] = useState<BoardData | null>(null);
@@ -158,8 +159,13 @@ export const Board: React.FC = () => {
                       <div className="font-bold text-white text-sm">{item.label}</div>
                       <div className="font-mono text-zinc-400 text-[11px]">ID: {item.id}</div>
                     </td>
-                    <td className="px-6 py-4 max-w-xs truncate font-mono text-zinc-400 text-xs">
-                      {item.url}
+                    <td className="px-6 py-4 max-w-sm font-mono text-zinc-400 text-xs">
+                      <div className="truncate">{item.url}</div>
+                      {getPageAvailability(item.id, item.url).notice && (
+                        <div className="text-[10px] text-amber-400 font-sans mt-1 break-normal leading-tight">
+                          {getPageAvailability(item.id, item.url).notice}
+                        </div>
+                      )}
                     </td>
                     <td className="px-6 py-4">
                       {activeTab === "best" ? (
