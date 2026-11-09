@@ -2,9 +2,9 @@
 
 ## System & Integrity Metadata
 
-- **Date & Time (UTC)**: 2026-11-09T13:30:10.278Z
+- **Date & Time (UTC)**: 2026-11-09T13:32:44.145Z
 - **dApp Repository**: `hypercybers99/alt-check-app-genlayer`
-- **Git Commit (HEAD)**: `3556a818821650c74c4dbadfdf67b1d974c2843d`
+- **Git Commit (HEAD)**: `42e5f4dc306ba0c0b19efc54869904237a79b23a`
 - **Release Version**: `v1.0.3`
 - **Network Environment**: GenLayer Studionet (Preview)
 - **Chain ID**: `61999`
@@ -211,25 +211,25 @@ Total Violations: Critical: 0, Serious: 0, Moderate: 0, Minor: 0
 ### 4.1 Unit Test Suite (`npm test` / Vitest)
 
 ```
-[1m[46m RUN [49m[22m [36mv3.2.7 [39m[90mE:/alt-check-app-genlayer[39m
+RUN  v3.2.7 E:/alt-check-app-genlayer
 
- [32m✓[39m tests/rpcErrorHandling.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m tests/boardSorting.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m tests/addressConsistency.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m tests/txLifecycle.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m tests/revertMap.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m tests/urlValidation.test.ts [2m([22m[2m29 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m tests/evidenceConsistency.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m tests/readbackVerification.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m tests/constantsParity.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m tests/methodFailureProof.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m tests/scoringArithmetic.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m tests/contractMethods.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [PASS] tests/rpcErrorHandling.test.ts (2 tests) 9ms
+ [PASS] tests/boardSorting.test.ts (3 tests) 14ms
+ [PASS] tests/revertMap.test.ts (3 tests) 11ms
+ [PASS] tests/addressConsistency.test.ts (3 tests) 8ms
+ [PASS] tests/txLifecycle.test.ts (7 tests) 10ms
+ [PASS] tests/urlValidation.test.ts (29 tests) 18ms
+ [PASS] tests/evidenceConsistency.test.ts (5 tests) 23ms
+ [PASS] tests/constantsParity.test.ts (1 test) 9ms
+ [PASS] tests/contractMethods.test.ts (3 tests) 9ms
+ [PASS] tests/readbackVerification.test.ts (4 tests) 16ms
+ [PASS] tests/scoringArithmetic.test.ts (4 tests) 13ms
+ [PASS] tests/methodFailureProof.test.ts (2 tests) 8ms
 
-[2m Test Files [22m [1m[32m12 passed[39m[22m[90m (12)[39m
-[2m      Tests [22m [1m[32m66 passed[39m[22m[90m (66)[39m
-[2m   Start at [22m 20:30:08
-[2m   Duration [22m 1.70s[2m (transform 662ms, setup 0ms, collect 1.33s, tests 114ms, environment 18ms, prepare 4.47s)[22m
+ Test Files  12 passed (12)
+      Tests  66 passed (66)
+   Start at  20:32:39
+   Duration  3.68s (transform 1.66s, setup 0ms, collect 3.22s, tests 148ms, environment 6ms, prepare 8.93s)
 ```
 
 ### 4.2 Automated Code Quality Scanners (`npm run check`)
@@ -249,11 +249,14 @@ PASS: Zero banned words detected across codebase and docs.
 ```
 Local tags:
 v1.0.2          AltCheck Desk v1.0.2: On-chain evidence reconciliation, zero-occlusion dialog hardening, and live fixture audit
+v1.0.3          Release v1.0.3: reconcile fixture URLs, axe-core evidence matrix, and verified evidence
 
 Remote tags (origin):
 bb11820277c8bb80c0f7a50901d7c411c595bb0a	refs/tags/v1.0.1
 d492bcafb6c650551a69d70a4341c3156d3c4d60	refs/tags/v1.0.2
 6c818f4dc28c85deb241bcb4c0ef460c78dd10fb	refs/tags/v1.0.2^{}
+d5a79577d547dd6b797cc9e47f299f0325ffca11	refs/tags/v1.0.3
+42e5f4dc306ba0c0b19efc54869904237a79b23a	refs/tags/v1.0.3^{}
 ```
 
 ### 5.2 Release Artifact Archive

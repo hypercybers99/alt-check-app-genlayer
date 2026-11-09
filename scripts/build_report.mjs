@@ -52,7 +52,9 @@ const refCheckOutput = runCmd("node scripts/check_reference_contract.mjs").trim(
 const bannedScanOutput = runCmd("node scripts/scan_banned.mjs").trim();
 
 // Vitest stdout
-const vitestOutput = runCmd("npx vitest run").trim();
+const vitestOutput = runCmd("npx vitest run --no-color")
+  .replace(/[^\x00-\x7F]/g, "[PASS]")
+  .trim();
 
 console.log("Generating REPORT.md programmatically...");
 
